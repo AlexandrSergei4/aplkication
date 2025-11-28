@@ -1,4 +1,4 @@
-package com.alki.alkipcaption
+package com.alki.aplkication
 
 import androidx.compose.ui.window.ComposeUIViewController
 

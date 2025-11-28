@@ -1,4 +1,4 @@
-package com.alki.alkipcaption
+package com.alki.aplkication
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

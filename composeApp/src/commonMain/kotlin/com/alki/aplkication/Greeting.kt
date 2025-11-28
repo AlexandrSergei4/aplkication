@@ -1,4 +1,4 @@
-package com.alki.alkipcaption
+package com.alki.aplkication
 
 class Greeting {
     private val platform = getPlatform()

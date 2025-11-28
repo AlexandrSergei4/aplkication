@@ -1,4 +1,4 @@
-package com.alki.alkipcaption
+package com.alki.aplkication
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -16,8 +16,8 @@ import androidx.compose.ui.Modifier
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-import alkipcaption.composeapp.generated.resources.Res
-import alkipcaption.composeapp.generated.resources.compose_multiplatform
+import aplkication.composeapp.generated.resources.Res
+import aplkication.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 @Preview

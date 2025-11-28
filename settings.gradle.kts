@@ -1,4 +1,4 @@
-rootProject.name = "alkipcaption"
+rootProject.name = "aplkication"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

@@ -52,11 +52,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.alki.alkipcaption"
+    namespace = "com.alki.aplkication"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.alki.alkipcaption"
+        applicationId = "com.alki.aplkication"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -84,11 +84,11 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "com.alki.alkipcaption.MainKt"
+        mainClass = "com.alki.aplkication.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.alki.alkipcaption"
+            packageName = "com.alki.aplkication"
             packageVersion = "1.0.0"
         }
     }
