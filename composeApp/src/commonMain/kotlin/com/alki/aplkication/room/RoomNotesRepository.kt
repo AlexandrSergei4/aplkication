@@ -1,9 +1,11 @@
 package com.alki.aplkication.room
 
+import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.alki.aplkication.data.Note
 import com.alki.aplkication.data.NotesRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +17,8 @@ class RoomNotesRepository(
 ) : NotesRepository {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val database = factory.createBuilder()
-        .fallbackToDestructiveMigration()
+        .setDriver(BundledSQLiteDriver())
+        .setQueryCoroutineContext(Dispatchers.IO)
         .build()
 
     private val dao = database.noteDao()

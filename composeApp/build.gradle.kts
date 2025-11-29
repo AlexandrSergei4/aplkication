@@ -45,8 +45,8 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.androidx.room.runtime)
-            implementation(libs.room.ktx)
             implementation(libs.androidx.sqlite.bundled)
+            implementation(libs.compose.icons.tabler)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

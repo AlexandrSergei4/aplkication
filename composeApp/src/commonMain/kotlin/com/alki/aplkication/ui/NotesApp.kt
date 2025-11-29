@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,6 +22,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,8 +35,8 @@ import androidx.compose.ui.unit.dp
 import com.alki.aplkication.data.Note
 import com.alki.aplkication.data.NotesRepository
 import com.alki.aplkication.presentation.NotesViewModel
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collectAsState
+import compose.icons.TablerIcons
+import compose.icons.tablericons.Trash
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,7 +64,7 @@ fun NotesApp(repository: NotesRepository) {
                 onAdd = { title -> viewModel.addNote(title) }
             )
             NotesList(
-                notes = notesState,
+                notes = notesState.value,
                 onDelete = { id -> viewModel.deleteNote(id) }
             )
         }
@@ -98,12 +97,11 @@ private fun NoteInput(onAdd: (String) -> Unit) {
 
 @Composable
 private fun NotesList(
-    notes: StateFlow<List<Note>>,
+    notes: List<Note>,
     onDelete: (Long) -> Unit
 ) {
-    val items by notes.collectAsState()
 
-    if (items.isEmpty()) {
+    if (notes.isEmpty()) {
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = "No notes yet. Add your first one!",
@@ -116,7 +114,7 @@ private fun NotesList(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        items(items) { note ->
+        items(notes) { note ->
             NoteItem(note = note, onDelete = { onDelete(note.id) })
         }
     }
@@ -147,7 +145,7 @@ private fun NoteItem(
                 )
             }
             IconButton(onClick = onDelete) {
-                Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete note")
+                Icon(imageVector = TablerIcons.Trash, contentDescription = "Delete note")
             }
         }
     }
